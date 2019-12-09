@@ -1,24 +1,91 @@
-import axios from "axios"
+import axios from 'axios';
 
-const baseURL = process.env.REACT_APP_API_URL || "http://localhost:3001"
+const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+
+export function singUp({ name, last_name, email, password }) {
+  return async function() {
+    try {
+      await axios({
+        method: 'post',
+        url: `${baseURL}/sing-up`,
+        data: {
+          name,
+          last_name,
+          email,
+          password
+        }
+      }).then(function({ data }) {
+        if (data.auth) {
+          localStorage.setItem('token', data.token);
+        }
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+}
 
 export function loginReq({ email, password }) {
   return async function() {
     try {
-      await axios
-        .post(`${baseURL}/login`, {
-          data: {
-            email,
-            password
-          }
-        })
-        .then(function({ data }) {
-          if (data.auth) {
-            localStorage.setItem("token", data.token)
-          }
-        })
+      await axios({
+        method: 'post',
+        url: `${baseURL}/login`,
+        data: {
+          email,
+          password
+        }
+      }).then(function({ data }) {
+        if (data.auth) {
+          localStorage.setItem('token', data.token);
+        }
+      });
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
+}
+
+export function getUserLinks() {
+  return async function(dispatch) {
+    try {
+      const links = await axios({
+        method: 'get',
+        url: `${baseURL}/my-links`,
+        headers: {
+          authorization: localStorage.getItem('token')
+        }
+      });
+      return dispatch({
+        type: 'GET_MY_LINKS',
+        payload: links.data
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+}
+
+export function shortenLink({ url, name }) {
+  return async function(dispatch) {
+    try {
+      const newLink = await axios({
+        method: 'post',
+        url: `${baseURL}/new-link`,
+        headers: {
+          authorization: localStorage.getItem('token')
+        },
+        data: {
+          url,
+          name
+        }
+      });
+      return dispatch({
+        type: 'NEW_LINK',
+        payload: newLink.data
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 }

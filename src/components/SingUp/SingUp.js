@@ -1,18 +1,28 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { loginReq } from '../../serverReq';
+import { singUp } from '../../serverReq';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-const Login = ({ loginReq }) => {
+const Login = ({ singUp }) => {
+  const [name, setName] = useState();
+  const [last_name, setLastName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  const credentials = {
+  const newUser = {
+    name,
+    last_name,
     email,
     password
   };
 
+  const handleName = event => {
+    setName(event.target.value);
+  };
+  const handleLastName = event => {
+    setLastName(event.target.value);
+  };
   const handleEmail = event => {
     setEmail(event.target.value);
   };
@@ -20,17 +30,39 @@ const Login = ({ loginReq }) => {
     setPassword(event.target.value);
   };
   const handelSubmit = event => {
-    loginReq(credentials);
+    singUp(newUser);
     event.preventDefault();
   };
 
   return (
     <Form onSubmit={handelSubmit}>
+      <Form.Group controlId="exampleForm.ControlTextarea1">
+        <Form.Label>Name</Form.Label>
+        <Form.Control
+          as="textarea"
+          placeholder="Name"
+          rows="1"
+          onChange={handleName}
+          required
+        />
+      </Form.Group>
+
+      <Form.Group controlId="exampleForm.ControlTextarea1">
+        <Form.Label>Last Name</Form.Label>
+        <Form.Control
+          as="textarea"
+          placeholder="Last name"
+          rows="1"
+          onChange={handleLastName}
+          required
+        />
+      </Form.Group>
+
       <Form.Group controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control
           type="email"
-          placeholder="Enter email"
+          placeholder="Email"
           onChange={handleEmail}
           required
         />
@@ -58,7 +90,7 @@ const Login = ({ loginReq }) => {
 const mapStateToProps = state => ({});
 
 const mapDispatchToProps = {
-  loginReq
+  singUp
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -1,0 +1,13 @@
+$margin: 15px;
+$pading: 15px;
+$iner-pading: 1.5rem;
+$secondary-color: #f0f0f0;
+$links-color: #007bff;
+$default-border: 1px solid #f0f0f0;
+
+.navbarContainer {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  border-bottom: $default-border;
+  margin-bottom: $margin;
+}

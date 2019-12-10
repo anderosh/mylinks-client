@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
-import './Header.css';
+import './Header.scss';
 import LogOut from '../LogOut/LogOut';
 
 const Header = () => {

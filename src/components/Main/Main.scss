@@ -1,3 +1,10 @@
+$margin: 15px;
+$pading: 15px;
+$iner-pading: 1.5rem;
+$secondary-color: #f0f0f0;
+$links-color: #007bff;
+$default-border: 1px solid #f0f0f0;
+
 .mainContainer {
   display: grid;
   grid-column-start: 2;
@@ -6,8 +13,8 @@
 .newLinkContainer {
   width: 300px;
   margin: 0 auto;
-  padding: 15px;
-  border: 1px solid rgb(240, 240, 240);
+  padding: $pading;
+  border: $default-border;
   border-radius: 1rem;
 }
 
@@ -15,13 +22,13 @@
   display: grid;
   margin: 0 auto;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 1.5rem;
+  grid-gap: $iner-pading;
 }
 
 .linkCard {
-  margin: 15px 0;
-  background: #e7eef6;
-  padding: 1.5rem;
+  margin: $margin 0;
+  background: $secondary-color;
+  padding: $iner-pading;
   border-radius: 1rem;
 }
 
@@ -31,7 +38,7 @@
   align-items: center;
 }
 
-. @media only screen and (min-width: 576px) {
+@media only screen and (min-width: 576px) {
   .mainContainer {
     grid-template-columns: 30px auto 30px;
   }

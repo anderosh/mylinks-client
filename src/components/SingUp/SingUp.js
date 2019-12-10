@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { singUp } from '../../serverReq';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import './SingUp.css';
+import './SingUp.scss';
 
 const Login = ({ singUp }) => {
   const [name, setName] = useState();

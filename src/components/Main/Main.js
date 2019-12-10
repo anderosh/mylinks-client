@@ -3,7 +3,7 @@ import NewLink from '../NewLink/NewLink';
 import { getUserLinks, deleteLink } from '../../serverReq';
 import { connect } from 'react-redux';
 import Button from 'react-bootstrap/Button';
-import './Main.css';
+import './Main.scss';
 
 const Main = ({ userLinks, getUserLinks, deleteLink }) => {
   const isLogIn = localStorage.getItem('token');

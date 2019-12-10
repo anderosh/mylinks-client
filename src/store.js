@@ -7,8 +7,6 @@ const initialState = {
   newLink: ''
 };
 const reducer = (state = initialState, action) => {
-  console.log(action.payload);
-  // console.log(initialState.userLinks);
   switch (action.type) {
     case 'GET_MY_LINKS':
       return {

@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { loginReq } from '../../serverReq';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import './Login.css';
+import './Login.scss';
 
-const Login = ({ loginReq }) => {
+export const Login = ({ loginReq }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 

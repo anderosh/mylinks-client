@@ -1,0 +1,8 @@
+.loginContainer {
+  grid-column-start: 2;
+  width: 300px;
+  margin: 0 auto;
+  padding: 15px;
+  border: 1px solid rgb(240, 240, 240);
+  border-radius: 1rem;
+}

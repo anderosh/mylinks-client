@@ -11,8 +11,9 @@ const App = () => (
   <Provider store={store}>
     <Router history={Router}>
       <Header />
+      <Route path="/" exact component={Login} />
+      <Route path="/login" exact component={Login} />
       <Route path="/sing-up" component={SingUp} />
-      <Route path="/login" component={Login} />
       <Route path="/main" component={Main} />
     </Router>
   </Provider>

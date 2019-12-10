@@ -38,6 +38,7 @@ export function loginReq({ email, password }) {
       }).then(function({ data }) {
         if (data.auth) {
           localStorage.setItem('token', data.token);
+          window.location.href = '/main';
         }
       });
     } catch (error) {
@@ -59,6 +60,29 @@ export function getUserLinks() {
       return dispatch({
         type: 'GET_MY_LINKS',
         payload: links.data
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+}
+
+export function deleteLink(linkId) {
+  return async function(dispatch) {
+    try {
+      const links = await axios({
+        method: 'delete',
+        url: `${baseURL}/delete`,
+        headers: {
+          authorization: localStorage.getItem('token')
+        },
+        data: {
+          linkId
+        }
+      });
+      return dispatch({
+        type: 'DELETE_LINK',
+        payload: linkId
       });
     } catch (error) {
       console.error(error);

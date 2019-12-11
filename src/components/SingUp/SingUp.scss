@@ -1,15 +1,10 @@
-$margin: 15px;
-$pading: 15px;
-$iner-pading: 1.5rem;
-$secondary-color: #f0f0f0;
-$links-color: #007bff;
-$default-border: 1px solid #f0f0f0;
+@import '../../variables.scss';
 
 .singUpContainer {
   grid-column-start: 2;
   width: 300px;
   margin: 0 auto;
-  padding: $pading;
+  padding: $padding;
   border: $default-border;
   border-radius: 1rem;
 }

@@ -51,9 +51,9 @@ export const Login = ({ loginReq }) => {
           />
         </Form.Group>
         <Button variant="primary" type="submit">
-          Submit
+          Login
         </Button>
-        <p>
+        <p className="sing-up-text">
           Don't have an account? <a href="/sing-up">Sing up</a>
         </p>
       </Form>

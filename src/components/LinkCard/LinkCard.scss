@@ -1,0 +1,18 @@
+@import '../../variables.scss';
+
+.linkCard {
+  margin: $margin 0;
+  background: $secondary-color;
+  padding: $inner-padding;
+  border-radius: 1rem;
+}
+.link-title {
+  text-align: center;
+  font: $title-font;
+}
+
+.urlAndButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

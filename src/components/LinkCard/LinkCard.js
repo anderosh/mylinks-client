@@ -1,16 +1,35 @@
 import React from 'react';
-import Card from 'react-bootstrap/Form';
+import { deleteLink } from '../../serverReq';
 import Button from 'react-bootstrap/Button';
+import { connect } from 'react-redux';
+import './LinkCard.scss';
 
-const LinkCard = ({ link }) => (
-  <Card style={{ width: '18rem' }}>
-    <Card.Img variant="top" src="holder.js/100px180" />
-    <Card.Body>
-      <Card.Title>{link.name}</Card.Title>
-      <Card.Text>{link.url}</Card.Text>
-      <Button variant="primary">{link.short_link}</Button>
-    </Card.Body>
-  </Card>
-);
+const LinkCard = ({ link, deleteLink }) => {
+  const handleDelete = e => {
+    deleteLink(e.target.name);
+  };
+  return (
+    <div className="linkCard" key={link._id}>
+      <h3 className="link-title">{link.name}</h3>
+      <div className="urlAndButton">
+        <a href={link.short_link} target="_blank">
+          {link.short_link}
+        </a>
+        <Button
+          variant="outline-danger"
+          size="sm"
+          name={link._id}
+          onClick={handleDelete}
+        >
+          <i className="far fa-trash-alt"></i>
+        </Button>
+      </div>
+    </div>
+  );
+};
 
-export default LinkCard;
+const mapDispatchToProps = {
+  deleteLink
+};
+
+export default connect(null, mapDispatchToProps)(LinkCard);

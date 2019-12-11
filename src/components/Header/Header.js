@@ -10,13 +10,13 @@ const Header = () => {
   return (
     <header className="navbarContainer">
       <Navbar bg="white" variant="light">
-        <Navbar.Brand href="/Main">My Short Links</Navbar.Brand>
+        <Navbar.Brand href="/Main">My-Links</Navbar.Brand>
         <Nav className="mr-auto"></Nav>
         {isLogIn ? (
           <LogOut />
         ) : (
           <Button href="/Login" variant="outline-primary">
-            <a>Login</a>
+            Login
           </Button>
         )}
       </Navbar>

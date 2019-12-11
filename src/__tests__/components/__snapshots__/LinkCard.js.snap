@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render no links when store is empty 1`] = `
+"<Provider store={{...}}>
+  <Connect(LinkCard) link={{...}}>
+    <LinkCard link={{...}} deleteLink={[Function]}>
+      <div className=\\"linkCard\\">
+        <h3 className=\\"link-title\\">
+          Link1
+        </h3>
+        <div className=\\"urlAndButton\\">
+          <a href=\\"https://rel.ink/gZzjjg\\" target=\\"_blank\\">
+            https://rel.ink/gZzjjg
+          </a>
+          <Button variant=\\"outline-danger\\" size=\\"sm\\" name=\\"1234\\" onClick={[Function: handleDelete]} active={false} disabled={false} type=\\"button\\">
+            <button name=\\"1234\\" onClick={[Function: handleDelete]} disabled={false} type=\\"button\\" className=\\"btn btn-outline-danger btn-sm\\">
+              <i className=\\"far fa-trash-alt\\" />
+            </button>
+          </Button>
+        </div>
+      </div>
+    </LinkCard>
+  </Connect(LinkCard)>
+</Provider>"
+`;

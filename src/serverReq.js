@@ -17,10 +17,11 @@ export function singUp({ name, last_name, email, password }) {
       }).then(function({ data }) {
         if (data.auth) {
           localStorage.setItem('token', data.token);
+          window.location.href = '/main';
         }
       });
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
 }
@@ -42,7 +43,7 @@ export function loginReq({ email, password }) {
         }
       });
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
 }
@@ -62,7 +63,7 @@ export function getUserLinks() {
         payload: links.data
       });
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
 }
@@ -70,7 +71,7 @@ export function getUserLinks() {
 export function deleteLink(linkId) {
   return async function(dispatch) {
     try {
-      const links = await axios({
+      await axios({
         method: 'delete',
         url: `${baseURL}/delete`,
         headers: {
@@ -85,7 +86,7 @@ export function deleteLink(linkId) {
         payload: linkId
       });
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
 }
@@ -109,7 +110,7 @@ export function shortenLink({ url, name }) {
         payload: newLink.data
       });
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
 }

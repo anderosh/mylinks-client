@@ -1,17 +1,11 @@
 import React, { useEffect } from 'react';
-import NewLink from '../NewLink/NewLink';
-import { getUserLinks, deleteLink } from '../../serverReq';
+import { getUserLinks } from '../../serverReq';
 import { connect } from 'react-redux';
-import Button from 'react-bootstrap/Button';
+import LinkCard from '../LinkCard/LinkCard';
+import NewLink from '../NewLink/NewLink';
 import './Main.scss';
 
-const Main = ({ userLinks, getUserLinks, deleteLink }) => {
-  const isLogIn = localStorage.getItem('token');
-
-  const handleDelete = e => {
-    deleteLink(e.target.name);
-  };
-
+const Main = ({ userLinks, getUserLinks }) => {
   useEffect(() => {
     getUserLinks();
   }, []);
@@ -24,22 +18,8 @@ const Main = ({ userLinks, getUserLinks, deleteLink }) => {
       <div className="myLinksContainer">
         <h2>My Links</h2>
         <div className="links">
-          {userLinks.map(link => (
-            <div className="linkCard" key={link._id}>
-              <h3>{link.name}</h3>
-              <div className="urlAndButton">
-                <a href={link.short_link}>{link.short_link}</a>
-                <Button
-                  variant="outline-danger"
-                  size="sm"
-                  name={link._id}
-                  onClick={handleDelete}
-                >
-                  Delete
-                </Button>
-              </div>
-            </div>
-          ))}
+          {userLinks.length > 0 &&
+            userLinks.map(link => <LinkCard link={link} key={link._id} />)}
         </div>
       </div>
     </div>
@@ -51,8 +31,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  getUserLinks,
-  deleteLink
+  getUserLinks
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

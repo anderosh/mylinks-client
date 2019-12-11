@@ -3,16 +3,10 @@ import { connect } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { shortenLink } from '../../serverReq';
-import { format } from 'path';
 
 const NewLink = ({ shortenLink }) => {
-  const [url, setUrl] = useState();
-  const [name, setName] = useState();
-
-  const newLink = {
-    url,
-    name
-  };
+  const [url, setUrl] = useState('');
+  const [name, setName] = useState('');
 
   const handleUrl = event => {
     setUrl(event.target.value);
@@ -22,8 +16,10 @@ const NewLink = ({ shortenLink }) => {
   };
   const handelSubmit = event => {
     event.preventDefault();
+
+    shortenLink({ url, name });
     setName('');
-    shortenLink(newLink);
+    setUrl('');
   };
 
   return (
@@ -31,11 +27,22 @@ const NewLink = ({ shortenLink }) => {
       <h5>New short link</h5>
       <Form.Group controlId="exampleForm.ControlTextarea1">
         <Form.Label>Url</Form.Label>
-        <Form.Control as="textarea" rows="1" onChange={handleUrl} />
+        <Form.Control
+          className="url-input"
+          as="textarea"
+          rows="1"
+          onChange={handleUrl}
+          value={url}
+        />
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlTextarea1">
         <Form.Label>Name</Form.Label>
-        <Form.Control as="textarea" rows="1" onChange={handleName} />
+        <Form.Control
+          as="textarea"
+          rows="1"
+          onChange={handleName}
+          value={name}
+        />
       </Form.Group>
       <Button variant="primary" type="submit">
         Short Link

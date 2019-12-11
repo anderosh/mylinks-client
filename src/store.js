@@ -16,7 +16,7 @@ const reducer = (state = initialState, action) => {
     case 'DELETE_LINK':
       return {
         ...state,
-        userLinks: state.userLinks.filter(l => l._id != action.payload)
+        userLinks: state.userLinks.filter(l => l._id !== action.payload)
       };
     case 'NEW_LINK':
       return {

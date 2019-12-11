@@ -1,9 +1,4 @@
-$margin: 15px;
-$pading: 15px;
-$iner-pading: 1.5rem;
-$secondary-color: #f0f0f0;
-$links-color: #007bff;
-$default-border: 1px solid #f0f0f0;
+@import '../../variables.scss';
 
 .mainContainer {
   display: grid;
@@ -13,7 +8,7 @@ $default-border: 1px solid #f0f0f0;
 .newLinkContainer {
   width: 300px;
   margin: 0 auto;
-  padding: $pading;
+  padding: $padding;
   border: $default-border;
   border-radius: 1rem;
 }
@@ -22,20 +17,7 @@ $default-border: 1px solid #f0f0f0;
   display: grid;
   margin: 0 auto;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: $iner-pading;
-}
-
-.linkCard {
-  margin: $margin 0;
-  background: $secondary-color;
-  padding: $iner-pading;
-  border-radius: 1rem;
-}
-
-.urlAndButton {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  grid-gap: $inner-padding;
 }
 
 @media only screen and (min-width: 576px) {

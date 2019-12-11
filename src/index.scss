@@ -1,23 +1,11 @@
-$margin: 15px;
-$pading: 15px;
-$secondary-color: #f0f0f0;
-$links-color: #007bff;
+@import '../src/variables.scss';
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 
 #root {
+  font-family: $primary-font;
   display: grid;
   grid-template-columns: auto 80% auto;
 }
